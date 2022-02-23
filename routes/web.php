@@ -21,5 +21,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/user/dashboard', [HomeController::class, 'index'])->name('home');
+Route::get('/user/dashboard', [HomeController::class, 'index'])->name('user.dashboard');
 Route::get('/user/profile', [HomeController::class, 'profile'])->name('user.profile');

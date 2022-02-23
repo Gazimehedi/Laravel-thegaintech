@@ -3,6 +3,9 @@
     <div class="row">
         <div class="col mb-3">
             <div class="card">
+                @include('partials.message')
+                <form action="{{route('user.profile.update')}}"novalidate="" method="post" enctype="multipart/form-data">@csrf
+                    @method('PUT')
                 <div class="card-body">
                     <div class="e-profile">
                         <div class="row">
@@ -27,7 +30,7 @@
                                     <div class="mt-2">
                                         <button class="btn btn-primary" type="button">
                                             <i class="fa fa-fw fa-camera"></i>
-                                            <span><input type="file" name="picture"></span>
+                                            <span><input type="file" name="image"></span>
                                         </button>
                                     </div>
                                 </div>
@@ -42,7 +45,6 @@
                         </ul>
                         <div class="tab-content pt-3">
                             <div class="tab-pane active">
-                                <form class="form" novalidate="">
                                     <div class="row">
                                         <div class="col">
                                             <div class="row">
@@ -65,7 +67,7 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label>Email</label>
-                                                        <input class="form-control" type="text"
+                                                        <input class="form-control" type="text" name="email"
                                                             placeholder="user@example.com" value="{{$user->email}}">
                                                     </div>
                                                 </div>
@@ -74,7 +76,7 @@
                                                 <div class="col mb-3">
                                                     <div class="form-group">
                                                         <label>About</label>
-                                                        <textarea class="form-control" rows="5"
+                                                        <textarea class="form-control" name="bio" rows="5"
                                                             placeholder="My Bio">{{$user->bio}}</textarea>
                                                     </div>
                                                 </div>
@@ -88,7 +90,7 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label>Current Password</label>
-                                                        <input class="form-control" type="password" placeholder="••••••">
+                                                        <input class="form-control" name="current_password" type="password" placeholder="••••••">
                                                     </div>
                                                 </div>
                                             </div>
@@ -96,7 +98,7 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label>New Password</label>
-                                                        <input class="form-control" type="password" placeholder="••••••">
+                                                        <input class="form-control" name="password" type="password" placeholder="••••••">
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,7 +107,7 @@
                                                     <div class="form-group">
                                                         <label>Confirm <span
                                                                 class="d-none d-xl-inline">Password</span></label>
-                                                        <input class="form-control" type="password" placeholder="••••••">
+                                                        <input class="form-control" name="password_confirmation" type="password" placeholder="••••••">
                                                     </div>
                                                 </div>
                                             </div>
@@ -116,12 +118,12 @@
                                             <button class="btn btn-primary" type="submit">Save Changes</button>
                                         </div>
                                     </div>
-                                </form>
 
                             </div>
                         </div>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
 

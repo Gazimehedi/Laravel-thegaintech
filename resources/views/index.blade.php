@@ -9,6 +9,7 @@
     <div class="row flex-lg-nowrap">
         <div class="col mb-3">
             <div class="e-panel card">
+                @include('partials.message')
                 <div class="card-body">
                     <div class="card-title">
                         <h6 class="mr-2"><span>Users</span><small class="px-1">Be a wise

@@ -24,4 +24,5 @@ Auth::routes();
 
 Route::get('/user/dashboard', [HomeController::class, 'index'])->name('user.dashboard');
 Route::get('/user/profile', [HomeController::class, 'profile'])->name('user.profile');
+Route::put('/user/profile/update', [HomeController::class, 'profileupdate'])->name('user.profile.update');
 Route::resource('/user',UserController::class)->names('user');

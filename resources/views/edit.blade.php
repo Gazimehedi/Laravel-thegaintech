@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 <div class="card mb-4">
+    @include('partials.message')
     <div class="card-header">
         <h5 class="modal-title">Edit User</h5>
     </div>

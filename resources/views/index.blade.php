@@ -61,7 +61,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                             <div class="btn-group align-top">
-                                                <a href="profile.html" class="btn btn-sm btn-outline-secondary badge"
+                                                <a href="{{route('user.show',$user->id)}}" class="btn btn-sm btn-outline-secondary badge"
                                                     type="button">View</a>
                                                 <a href="{{route('user.edit',$user->id)}}" class="btn btn-sm btn-outline-secondary badge" type="button">Edit</a>
                                                     <button class="btn btn-sm btn-outline-secondary badge" type="submit"><i

@@ -57,13 +57,17 @@
                                                 class="fa fa-fw text-secondary cursor-pointer fa-toggle-off"></i>'!!}
                                         </td>
                                         <td class="text-center align-middle">
+                                            <form action="{{ route('user.destroy',$user->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
                                             <div class="btn-group align-top">
                                                 <a href="profile.html" class="btn btn-sm btn-outline-secondary badge"
                                                     type="button">View</a>
                                                 <a href="{{route('user.edit',$user->id)}}" class="btn btn-sm btn-outline-secondary badge" type="button">Edit</a>
-                                                <button class="btn btn-sm btn-outline-secondary badge" type="button"><i
+                                                    <button class="btn btn-sm btn-outline-secondary badge" type="submit"><i
                                                         class="fa fa-trash"></i></button>
-                                            </div>
+                                                    </div>
+                                                </form>
                                         </td>
                                     </tr>
                                     @endforeach

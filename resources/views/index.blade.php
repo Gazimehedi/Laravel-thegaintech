@@ -60,8 +60,7 @@
                                             <div class="btn-group align-top">
                                                 <a href="profile.html" class="btn btn-sm btn-outline-secondary badge"
                                                     type="button">View</a>
-                                                <button class="btn btn-sm btn-outline-secondary badge" type="button"
-                                                    data-toggle="modal" data-target="#user-form-modal">Edit</button>
+                                                <a href="{{route('user.edit',$user->id)}}" class="btn btn-sm btn-outline-secondary badge" type="button">Edit</a>
                                                 <button class="btn btn-sm btn-outline-secondary badge" type="button"><i
                                                         class="fa fa-trash"></i></button>
                                             </div>

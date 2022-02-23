@@ -40,6 +40,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->all();
         $request->validate([
             'name'=>'required',
             'username'=>'required|unique:users',
@@ -47,10 +48,10 @@ class UserController extends Controller
             'bio'=>'required',
             'password'=>'required|min:8|confirmed',
         ]);
-        User::create([
+        User::insert([
             'name'=>$request->name,
-            'username'=>$request->username,
             'email'=>$request->email,
+            'username'=>$request->username,
             'bio'=>$request->bio,
             'password'=> Hash::make($request->password),
         ]);
@@ -76,7 +77,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('edit',compact('user'));
     }
 
     /**

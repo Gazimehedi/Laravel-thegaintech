@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->timestamp('last_seen')->nullable();
             $table->string('profile_photo_path')->nullable();
-            $table->string('status')->nullable();
+            $table->integer('status')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

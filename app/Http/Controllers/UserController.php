@@ -90,7 +90,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'username'=>'required',
+            'email'=>'required|email',
+            'bio'=>'required',
+            'password'=>'min:8|confirmed',
+        ]);
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->username = $request->username;
+        $user->bio = $request->bio;
+        if($request->password != ""){
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+
+        return redirect()->back()->with('success','user created successfully');
     }
 
     /**

@@ -6,7 +6,8 @@
     </div>
     <div class="card-body">
         <div class="py-1">
-            <form class="form" novalidate="" action="{{route('user.store')}}" method="post">@csrf
+            <form class="form" novalidate="" action="{{route('user.update',$user->id)}}" method="post">@csrf
+                @method('PUT')
                 <div class="row">
                     <div class="col">
                         <div class="row">

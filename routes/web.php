@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,4 @@ Auth::routes();
 
 Route::get('/user/dashboard', [HomeController::class, 'index'])->name('user.dashboard');
 Route::get('/user/profile', [HomeController::class, 'profile'])->name('user.profile');
+Route::resource('/user',UserController::class)->names('user');

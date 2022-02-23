@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
                 <div class="py-1">
-                    <form class="form" novalidate="">
+                    <form class="form" novalidate="" action="{{route('user.store')}}" method="post">@csrf
                         <div class="row">
                             <div class="col">
                                 <div class="row">
@@ -32,7 +32,7 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input class="form-control" type="text" placeholder="user@example.com">
+                                            <input class="form-control" type="text" placeholder="user@example.com" name="email">
                                         </div>
                                     </div>
                                 </div>
@@ -40,7 +40,7 @@
                                     <div class="col mb-3">
                                         <div class="form-group">
                                             <label>About</label>
-                                            <textarea class="form-control" rows="5" placeholder="My Bio"></textarea>
+                                            <textarea class="form-control" rows="5" placeholder="My Bio" name="bio"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -48,26 +48,17 @@
                         </div>
                         <div class="row">
                             <div class="col-12 col-sm-6 mb-3">
-                                <div class="mb-2"><b>Change Password</b></div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label>Current Password</label>
-                                            <input class="form-control" type="password" placeholder="••••••">
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
                                             <label>New Password</label>
-                                            <input class="form-control" type="password" placeholder="••••••">
+                                            <input class="form-control" type="password" name="password" placeholder="••••••">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Confirm <span class="d-none d-xl-inline">Password</span></label>
-                                            <input class="form-control" type="password" placeholder="••••••">
+                                            <input class="form-control" type="password" name="password_confirmation" placeholder="••••••">
                                         </div>
                                     </div>
                                 </div>
@@ -75,7 +66,7 @@
                         </div>
                         <div class="row">
                             <div class="col d-flex justify-content-end">
-                                <button class="btn btn-primary" type="submit">Save Changes</button>
+                                <button class="btn btn-primary" type="submit">Submit</button>
                             </div>
                         </div>
                     </form>

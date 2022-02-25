@@ -75,4 +75,10 @@ class HomeController extends Controller
 
         return redirect()->back()->with('success','Profile updated successfully');
     }
+    public function status($status,$id){
+        $user = User::find($id);
+        $user->status = $status;
+        $user->save();
+        return redirect()->back()->with('success','Profile status updated successfully');
+    }
 }

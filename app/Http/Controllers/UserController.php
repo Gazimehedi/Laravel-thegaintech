@@ -96,7 +96,7 @@ class UserController extends Controller
             'username'=>'required',
             'email'=>'required|email',
             'bio'=>'required',
-            'password'=>'min:8|confirmed',
+            'password'=>'confirmed',
         ]);
         $user = User::find($id);
         $user->name = $request->name;

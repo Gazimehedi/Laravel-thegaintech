@@ -53,9 +53,9 @@
                                         <td class="text-nowrap align-middle">{{$user->name}}</td>
                                         <td class="text-nowrap align-middle"><span>{{\Carbon\Carbon::parse($user->created_at)->format('d M Y')}}</span></td>
                                         <td class="text-center align-middle">
-                                            {!!$user->status == 1? '<i
-                                            class="fa fa-fw text-secondary cursor-pointer fa-toggle-on"></i>' : '<i
-                                                class="fa fa-fw text-secondary cursor-pointer fa-toggle-off"></i>'!!}
+                                            {!!$user->status == 1? '<a href="'.route('user.updatestatus',[0,$user->id]).'"><i
+                                            class="fa fa-fw text-secondary cursor-pointer fa-toggle-on"></i></a>' : '<a href="'.route('user.updatestatus',[1,$user->id]).'"><i
+                                                class="fa fa-fw text-secondary cursor-pointer fa-toggle-off"></i></a>'!!}
                                         </td>
                                         <td class="text-center align-middle">
                                             <form action="{{ route('user.destroy',$user->id) }}" method="POST">

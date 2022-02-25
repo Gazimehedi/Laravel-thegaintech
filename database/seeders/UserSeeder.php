@@ -19,6 +19,8 @@ class UserSeeder extends Seeder
             'name' => 'TheGainTech',
             'email' => 'thegaintech@gmail.com',
             'password' => Hash::make('thegaintech'),
+            'username' =>'thegaintech' ,
+            'created_at'=>now(),
         ]);
     }
 }

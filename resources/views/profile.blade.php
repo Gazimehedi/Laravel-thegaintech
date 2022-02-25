@@ -26,7 +26,7 @@
                                 <div class="text-center text-sm-left mb-2 mb-sm-0">
                                     <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{$user->name}}</h4>
                                     <p class="mb-0">{{$user->username}}</p>
-                                    <div class="text-muted"><small>Last seen 2 hours ago</small></div>
+                                    <div class="text-muted"><small>Last seen {{\Carbon\Carbon::parse($user->last_seen)->diffForHumans()}}</small></div>
                                     <div class="mt-2">
                                         <button class="btn btn-primary" type="button">
                                             <i class="fa fa-fw fa-camera"></i>

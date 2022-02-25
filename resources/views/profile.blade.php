@@ -32,7 +32,7 @@
                                         @else
                                             <span class="text-secondary">Offline</span>
                                         @endif
-                                        - Last seen {{\Carbon\Carbon::parse($user->last_seen)->diffForHumans()}}</small></div>
+                                        {{$user->last_seen != null? '- Last seen '.\Carbon\Carbon::parse($user->last_seen)->diffForHumans() : ''}}</small></div>
                                     <div class="mt-2">
                                         <button class="btn btn-primary" type="button">
                                             <i class="fa fa-fw fa-camera"></i>

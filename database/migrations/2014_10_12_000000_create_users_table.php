@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('last_seen')->nullable();
             $table->string('profile_photo_path')->nullable();
             $table->integer('status')->default(1);
+            $table->integer('is_admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

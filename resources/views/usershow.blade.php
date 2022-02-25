@@ -32,7 +32,7 @@
                                         @else
                                             <span class="text-secondary">Offline</span>
                                         @endif
-                                        - Last seen {{\Carbon\Carbon::parse($user->last_seen)->diffForHumans()}}</small></div>
+                                        {{$user->last_seen != null? '- Last seen '.\Carbon\Carbon::parse($user->last_seen)->diffForHumans() : ''}}</small></div>
                                     <div class="mt-2">
                                         <button class="btn btn-primary" type="button">
                                             <i class="fa fa-fw fa-camera"></i>
@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center text-sm-right">
-                                    <span class="badge badge-secondary">administrator</span>
+                                    <span class="badge badge-secondary">{{$user->is_admin == 1? 'administrator' : 'user'}}</span>
                                     <div class="text-muted"><small>Joined {{\Carbon\Carbon::parse($user->created_at)->format('d M Y')}}</small></div>
                                 </div>
                             </div>
@@ -134,19 +134,7 @@
         </div>
 
         <div class="col-12 col-md-3 mb-3">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="px-xl-3">
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-block btn-secondary">
-                                <i class="fa fa-sign-out"></i>
-                                <span>Logout</span>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 @endsection

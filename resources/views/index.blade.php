@@ -105,28 +105,34 @@
                     <div class="e-navlist e-navlist--active-bold">
                         <ul class="nav">
                             <li class="nav-item active"><a href=""
-                                    class="nav-link"><span>All</span>&nbsp;<small>/&nbsp;32</small></a>
+                                    class="nav-link"><span>All</span>&nbsp;<small>/&nbsp;{{$allUser}}</small></a>
                             </li>
                             <li class="nav-item"><a href=""
-                                    class="nav-link"><span>Active</span>&nbsp;<small>/&nbsp;16</small></a>
+                                    class="nav-link"><span>Active</span>&nbsp;<small>/&nbsp;{{$activeUser}}</small></a>
                             </li>
-                            <li class="nav-item"><a href=""
+                            {{-- <li class="nav-item"><a href=""
                                     class="nav-link"><span>Selected</span>&nbsp;<small>/&nbsp;0</small></a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <hr class="my-3">
+                    <form action="{{route('user.dashboard')}}" method="get">
                     <div>
                         <div class="form-group">
-                            <label>Date from - to:</label>
+                            <label>Date from:</label>
                             <div>
-                                <input id="dates-range" class="form-control flatpickr-input"
-                                    placeholder="01 Dec 17 - 27 Jan 18" type="text" readonly="readonly">
+                                <input id="dates-range" name="form" class="form-control flatpickr-input"
+                                    placeholder="01 Dec 17" type="date">
+                            </div>
+                            <label>to:</label>
+                            <div>
+                                <input id="dates-range" name="to" class="form-control flatpickr-input"
+                                    placeholder="27 Jan 18" type="date">
                             </div>
                         </div>
                         <div class="form-group">
                             <label>Search by Name:</label>
-                            <div><input class="form-control w-100" type="text" placeholder="Name" value="">
+                            <div><input class="form-control w-100" type="text" placeholder="Name" name="name">
                             </div>
                         </div>
                     </div>
@@ -135,30 +141,30 @@
                         <label>Status:</label>
                         <div class="px-2">
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="user-status"
-                                    id="users-status-disabled">
+                                <input type="radio" class="custom-control-input" name="user_status"
+                                    id="users-status-disabled" value="disabled">
                                 <label class="custom-control-label" for="users-status-disabled">Disabled</label>
                             </div>
                         </div>
                         <div class="px-2">
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="user-status"
-                                    id="users-status-active">
+                                <input type="radio" class="custom-control-input" name="user_status"
+                                    id="users-status-active" value="active">
                                 <label class="custom-control-label" for="users-status-active">Active</label>
                             </div>
                         </div>
                         <div class="px-2">
                             <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="user-status" id="users-status-any"
-                                    checked="">
+                                <input type="radio" class="custom-control-input" name="user_status" id="users-status-any" value="any">
                                 <label class="custom-control-label" for="users-status-any">Any</label>
                             </div>
                         </div>
                     </div>
                     <hr class="my-3">
                     <div class="text-center px-xl-3">
-                        <button class="btn btn-primary btn-block" type="button">Search</button>
+                        <button class="btn btn-primary btn-block" type="submit">Search</button>
                     </div>
+                </form>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -25,10 +26,26 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(10);
-        return view('index',compact('users'));
+        $allUser = User::all()->count();
+        $activeUser = User::where('status',1)->get()->count();
+        $users = DB::table('users');
+        if($request->form != "" && $request->to != ""){
+            $users = $users->whereBetween('created_at',[$request->form,$request->to]);
+        }
+        if($request->name != ""){
+            $users = $users->orWhere('name','like','%'.$request->name.'%');
+        }
+        if($request->user_status == "active"){
+            $users = $users->orWhere('status',1);
+        }
+        if($request->user_status == "disabled"){
+            $users = $users->orWhere('status',0);
+        }
+
+        $users = $users->paginate(10);
+        return view('index',compact(['users','allUser','activeUser']));
     }
     public function profile()
     {

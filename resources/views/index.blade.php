@@ -45,10 +45,15 @@
                                             </div>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <div class="bg-light d-inline-flex justify-content-center align-items-center align-top"
-                                                style="width: 35px; height: 35px; border-radius: 3px;"><i
+                                            @if ($user->profile_photo_path != null)
+                                                <img src="{{asset($user->profile_photo_path)}}" class="bg-light d-inline-flex justify-content-center align-items-center align-top" style="width: 45px; height: 45px; border-radius: 3px;" >
+                                                @else
+                                                <div class="bg-light d-inline-flex justify-content-center align-items-center align-top"
+                                                style="width: 45px; height: 45px; border-radius: 3px;"><i
                                                     class="fa fa-fw fa-photo" style="opacity: 0.8;"></i>
                                             </div>
+                                            </div>
+                                            @endif
                                         </td>
                                         <td class="text-nowrap align-middle">{{$user->name}}</td>
                                         <td class="text-nowrap align-middle"><span>{{\Carbon\Carbon::parse($user->created_at)->format('d M Y')}}</span></td>

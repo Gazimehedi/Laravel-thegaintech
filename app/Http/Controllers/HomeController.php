@@ -53,9 +53,12 @@ class HomeController extends Controller
         $user = User::find($id);
         return view('profile',compact('user'));
     }
-    public function profileupdate(Request $request)
+    public function profileupdate(Request $request,$id="")
     {
-        $id = Auth::id();
+
+        if($id == ""){
+            $id = Auth::id();
+        }
         $request->validate([
             'name'=>'required',
             'username'=>'required',
